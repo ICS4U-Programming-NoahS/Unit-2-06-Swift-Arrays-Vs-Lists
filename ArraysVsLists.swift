@@ -21,13 +21,13 @@ func calcMean(arrayInt: [Int]) -> Double {
 
     // initialize the sum
     var sum = 0.0
-    
+
     // iterate through the array
     for num in arrayInt {
         // add the integer of the current index to the sum
         sum += Double(num)
     }
-    
+
     // return the mean
     return Double(sum) / Double(arrayInt.count)
 }
@@ -36,24 +36,24 @@ func calcMean(arrayInt: [Int]) -> Double {
 func calcMedian(arrayInt: [Int]) -> Double {
     // Initialize the median
     var median = 0.0
-    
+
     // If the length of the array is even
-    if (arrayInt.count % 2 == 0) {
+    if arrayInt.count % 2 == 0 {
         // find the two middle indexes
         let medianIndex1 = arrayInt.count / 2
         let medianIndex2 = medianIndex1 - 1
-        
+
         // calculate the median
         median = Double((arrayInt[medianIndex1] + arrayInt[medianIndex2])) / 2.0
     } else {
         // If the length of the array is odd
         // find the middle index
         let medianIndex = arrayInt.count / 2
-        
+
         // set the value at the middle index to the median
         median = Double(arrayInt[medianIndex])
     }
-    
+
     // return the median
     return median
 }
@@ -67,11 +67,11 @@ var fileName = ""
 repeat {
     // Ask the user for the file name
     print("Enter the number set you would like to use (1, 2, 3), or 'q' to quit: ", terminator: "")
-    
+
     // Get the file name input
     // If the user enters nothing, it will replace nil with an empty string
     fileName = readLine() ?? ""
-    
+
     // Check if the user wants to quit
     if fileName == "q" {
 
@@ -91,7 +91,7 @@ repeat {
 
             // Initialize the array of numbers
             var numbers: [Int] = []
-            
+
             // Split the file into lines
             let lines = file.split(separator: "\n")
 
@@ -112,20 +112,20 @@ repeat {
                     }
                 }
             }
-            
+
             // Sort the array of numbers
             let sortedArray = numbers.sorted()
-            
+
             // Call the mean and median from each function
             let mean = calcMean(arrayInt: sortedArray)
             let median = calcMedian(arrayInt: sortedArray)
-            
+
             // Create the output file name
             let outputFileName = "Unit2-06-set\(fileName)-output.txt"
 
             // reset the output string
             var outputStr = ""
-            
+
             // Write the sorted array directly to an output string
             // One number at a a time, separated by spaces
             // I didn't want to use an output string but this is the only way I could get it to work
