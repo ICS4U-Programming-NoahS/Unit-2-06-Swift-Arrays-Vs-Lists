@@ -151,7 +151,7 @@ repeat {
                 try outputStr.write(toFile: outputFileName, atomically: true, encoding: .utf8)
 
                 // Success message
-                print("Successfully wrote to file.")
+                print("The file " + fileNameWithPath + " was written successfully.")
             } catch {
                 // If the file cannot be written
                 print("Error writing to file.")
